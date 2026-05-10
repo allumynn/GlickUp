@@ -17,7 +17,7 @@ import {
 } from 'lucide-react-native';
 import { Page } from '../types';
 
-interface NavigationProps {
+export interface NavigationProps {
   activeSection: Page;
   setActiveSection: (page: Page) => void;
 }
