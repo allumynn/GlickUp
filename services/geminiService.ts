@@ -1,5 +1,6 @@
 
 import { GoogleGenAI } from "@google/genai";
+import { ChatMessage } from "../types";
 
 const SYSTEM_INSTRUCTION = `
 Você é o EducaDM1, um assistente educativo para adolescentes com Diabetes Tipo 1 (DM1).
@@ -18,22 +19,49 @@ Se pedirem dose de insulina, diga explicitamente: "Eu não posso calcular doses.
 `;
 
 export class GeminiService {
-  // Always initialize GoogleGenAI with the API_KEY from process.env and restore history in the chat session.
-  async sendMessage(history: { role: 'user' | 'model', parts: { text: string }[] }[], message: string) {
+  async sendMessage(history: ChatMessage[], message: string) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("GEMINI_API_KEY não configurada.");
+      console.error("GEMINI_API_KEY is not defined");
+      throw new Error("GEMINI_API_KEY não configurada no ambiente.");
     }
+
     const ai = new GoogleGenAI({ apiKey });
-    const chat = ai.chats.create({
-      model: 'gemini-3-flash-preview',
-      history: history,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-      },
+    
+    // Preparar a história: o Gemini exige que comece com 'user' e alterne
+    const contents = history.map(m => ({
+      role: m.role as 'user' | 'model',
+      parts: m.parts.map(p => ({ text: p.text }))
+    }));
+
+    // Remover qualquer mensagem inicial do modelo (bot) se não houver um 'user' antes
+    while (contents.length > 0 && contents[0].role === 'model') {
+      contents.shift();
+    }
+
+    // Adicionar a mensagem atual do usuário
+    contents.push({
+      role: 'user',
+      parts: [{ text: message }]
     });
 
-    const response = await chat.sendMessage({ message });
-    return response.text;
+    try {
+      const response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: contents,
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
+        },
+      });
+
+      if (!response.text) {
+        throw new Error("O modelo retornou uma resposta vazia.");
+      }
+
+      return response.text;
+    } catch (error) {
+      console.error("Erro na API Gemini:", error);
+      throw error;
+    }
   }
 }
