@@ -9,7 +9,7 @@ import {
   Dimensions 
 } from 'react-native';
 import { APP_ZONES } from '../constants';
-import { Clock, Zap, Info, ShieldCheck } from 'lucide-react-native';
+import { Clock, Zap, Info, ShieldCheck } from 'lucide-react';
 
 const { width } = Dimensions.get('window');
 

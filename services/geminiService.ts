@@ -20,13 +20,13 @@ Se pedirem dose de insulina, diga explicitamente: "Eu não posso calcular doses.
 export class GeminiService {
   // Always initialize GoogleGenAI with the API_KEY from process.env and restore history in the chat session.
   async sendMessage(history: { role: 'user' | 'model', parts: { text: string }[] }[], message: string) {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("VITE_GEMINI_API_KEY não configurada.");
+      throw new Error("GEMINI_API_KEY não configurada.");
     }
     const ai = new GoogleGenAI({ apiKey });
     const chat = ai.chats.create({
-      model: 'gemini-1.5-flash', // Model updated to standard alias
+      model: 'gemini-3-flash-preview',
       history: history,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

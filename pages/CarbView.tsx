@@ -7,7 +7,7 @@ import {
   ScrollView, 
   Dimensions 
 } from 'react-native';
-import { Apple, Sandwich, Coffee, CheckCircle2 } from 'lucide-react-native';
+import { Apple, Sandwich, Coffee, CheckCircle2 } from 'lucide-react';
 
 const { width } = Dimensions.get('window');
 

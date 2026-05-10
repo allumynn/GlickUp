@@ -10,7 +10,7 @@ import {
   Platform, 
   ActivityIndicator 
 } from 'react-native';
-import { Send, Bot, Info } from 'lucide-react-native';
+import { Send, Bot, Info } from 'lucide-react';
 import { GeminiService } from '../services/geminiService';
 import { ChatMessage } from '../types';
 

@@ -14,7 +14,7 @@ import {
   Apple, 
   AlertCircle, 
   MessageCircle 
-} from 'lucide-react-native';
+} from 'lucide-react';
 import { Page } from '../types';
 
 export interface NavigationProps {

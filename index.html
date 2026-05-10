@@ -13,11 +13,28 @@
             --primary-blue: #007AFF;
             --primary-purple: #AF52DE;
         }
+        body, html, #root {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-deep);
+        }
+        #root {
+            flex: 1;
+        }
+        /* Resets for react-native-web */
+        [data-reactroot] {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-deep);
             color: #F8FAFC;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
         .font-outfit { font-family: 'Outfit', sans-serif; }
@@ -74,19 +91,6 @@
             border-radius: 10px;
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.574.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
-  }
-}
-</script>
 </head>
 <body>
     <div id="root"></div>

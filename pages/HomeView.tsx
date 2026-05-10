@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { Page } from '../types';
 import { QUICK_ACTIONS } from '../constants';
-import { Sparkles, Zap } from 'lucide-react-native';
+import { Sparkles, Zap } from 'lucide-react';
 
 const { width } = Dimensions.get('window');
 

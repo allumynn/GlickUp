@@ -10,7 +10,7 @@ import {
   Apple, 
   BookOpen,
   Info
-} from 'lucide-react-native';
+} from 'lucide-react';
 
 export const COLORS = {
   navy: '#0A192F',

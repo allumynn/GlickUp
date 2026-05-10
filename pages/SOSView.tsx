@@ -15,7 +15,7 @@ import {
   ShieldAlert, 
   Phone, 
   X 
-} from 'lucide-react-native';
+} from 'lucide-react';
 
 const SOSView: React.FC = () => {
   return (

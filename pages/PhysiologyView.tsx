@@ -15,7 +15,7 @@ import {
   Check, 
   X, 
   Orbit 
-} from 'lucide-react-native';
+} from 'lucide-react';
 
 const { width } = Dimensions.get('window');
 
