@@ -1,0 +1,8 @@
+{
+  "name": "EducaDM1 - Guia de Sobrevivência",
+  "description": "Uma plataforma educativa moderna para adolescentes com Diabetes Tipo 1, focada em autonomia, fisiologia e controle glicêmico com design Deep Night Medical.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
