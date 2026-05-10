@@ -27,8 +27,8 @@ const App: React.FC = () => {
   const [isApiKeyMissing, setIsApiKeyMissing] = useState(false);
 
   useEffect(() => {
-    // Check for API Key on startup
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Check for API Key on startup (AI Studio or Vercel/Vite standard)
+    const apiKey = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
     if (!apiKey || apiKey === 'undefined' || apiKey === '') {
       setIsApiKeyMissing(true);
     }
@@ -42,26 +42,28 @@ const App: React.FC = () => {
             <AlertTriangle size={48} color="#F59E0B" />
             <Text style={styles.warningTitle}>IA Não Configurada</Text>
             <Text style={styles.warningText}>
-              A chave da API (GEMINI_API_KEY) não foi encontrada no ambiente. 
-              O assistente virtual precisa desta chave para responder às suas perguntas.
+              A chave da API não foi encontrada no ambiente do Vercel ou AI Studio.
             </Text>
             
             <View style={styles.instructionBox}>
               <Text style={styles.instructionText}>
-                Para configurar:
+                No Vercel, você deve:
               </Text>
               <Text style={styles.stepText}>
-                1. Abra o menu "Settings" no AI Studio.
+                1. Ir em Projeto {'>'} Settings {'>'} Environment Variables.
               </Text>
               <Text style={styles.stepText}>
-                2. Adicione GEMINI_API_KEY com sua chave da API Gemini.
+                2. Adicionar 'VITE_GEMINI_API_KEY' com sua chave.
+              </Text>
+              <Text style={styles.stepText}>
+                3. Fazer um novo "Redeploy".
               </Text>
             </View>
 
             <TouchableOpacity 
               style={styles.retryButton}
               onPress={() => {
-                const apiKey = process.env.GEMINI_API_KEY;
+                const apiKey = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
                 if (apiKey && apiKey !== 'undefined' && apiKey !== '') {
                   setIsApiKeyMissing(false);
                 }

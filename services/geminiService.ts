@@ -20,7 +20,8 @@ Se pedirem dose de insulina, diga explicitamente: "Eu não posso calcular doses.
 
 export class GeminiService {
   async sendMessage(history: ChatMessage[], message: string) {
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Note: For Vercel/Vite client-side deployment, the key must be prefixed with VITE_
+    const apiKey = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
     if (!apiKey) {
       console.error("GEMINI_API_KEY is not defined");
       throw new Error("GEMINI_API_KEY não configurada no ambiente.");
