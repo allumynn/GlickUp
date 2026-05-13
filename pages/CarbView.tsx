@@ -22,7 +22,7 @@ const CarbView: React.FC = () => {
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.header}>
         <Text style={styles.title}>Contagem de Carboidratos</Text>
-        <Text style={styles.subtitle}>Não é dieta restritiva, é matemática inteligente.</Text>
+        <Text style={styles.subtitle}>Não existem alimentos proibidos. O segredo não é o que você come, mas quanto carboidrato tem no prato para ajustar a sua dose de insulina. Sendo assim, seu corpo não vê “lasanha” ou “maçã”. Ele vê Glicose. O seu trabalho é descobrir quanta glicose tem no prato.</Text>
       </View>
 
       <View style={styles.section}>
@@ -32,7 +32,8 @@ const CarbView: React.FC = () => {
           </View>
         </View>
         <Text style={styles.sectionTitle}>A Regra dos 15g</Text>
-        <Text style={styles.sectionDesc}>Muitas porções padrão de alimentos têm cerca de 15g de carboidratos.</Text>
+        <Text style={styles.sectionDesc}>Para facilitar a contagem de carboidratos, existe a “regra dos 15 g”. Ela funciona com porções equivalentes: muitos alimentos do dia a dia, em quantidades normais, possuem aproximadamente 15 g de carboidratos. {'\n\n'}
+        Assim, fica mais simples montar as refeições. Por exemplo, se o lanche da tarde deve ter 30 g de carboidratos, basta combinar 2 porções de 15 g.</Text>
 
         <View style={styles.grid}>
           {equivalents.map((item, idx) => (

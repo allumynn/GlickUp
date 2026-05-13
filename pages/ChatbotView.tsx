@@ -18,7 +18,7 @@ const ChatbotView: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       role: 'model', 
-      parts: [{ text: "Oi! Sou o EducaBot. 👋 Posso te ajudar a entender melhor como lidar com o diabetes no dia a dia. O que você quer saber hoje?" }] 
+      parts: [{ text: "Oi! Sou o EducaBot. Posso te ajudar a entender melhor como lidar com o diabetes no dia a dia. O que você quer saber hoje?" }] 
     }
   ]);
   const [input, setInput] = useState('');

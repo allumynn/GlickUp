@@ -23,7 +23,7 @@ const PhysiologyView: React.FC = () => {
   const myths = [
     { title: "Culpa do doce?", description: "O Tipo 1 é autoimune. Doces não 'quebram' o pâncreas.", isTrue: false },
     { title: "Esporte ajuda?", description: "Totalmente! O exercício faz a insulina trabalhar melhor.", isTrue: true },
-    { title: "Cura em 5 anos?", description: "A promessa é antiga, mas a tecnologia atual já é quase um pâncreas biônico.", isTrue: true },
+    { title: "Cura em 5 anos?", description: "É uma doença crônica sem cura no momento, mas tem tratamento, ou seja, pode ser controlada.", isTrue: false },
     { title: "Posso comer pizza?", description: "Pode! Só precisa dominar a arte do Bolus.", isTrue: true }
   ];
 
@@ -45,10 +45,9 @@ const PhysiologyView: React.FC = () => {
             <Text style={styles.cardTitle}>Autoimunidade</Text>
           </View>
           <Text style={styles.cardDescription}>
-            Imagine que os guardas do seu corpo (sistema imune) ficaram confusos. Em vez de caçar vírus, eles caçaram as 
-            <Text style={styles.boldBlue}> Células Beta</Text>. {'\n\n'}
-            O resultado? Uma falha crítica na produção de insulina. Sem esse "software" rodando, a energia da comida fica 
-            travada do lado de fora das células.
+            Basicamente, ocorreu uma falha no seu organismo. O sistema imunológico, que deveria proteger o corpo contra vírus e bactérias, passou a atacar as células beta do pâncreas, responsáveis pela produção de insulina. {'\n\n'}
+            Com isso, essas células vão sendo destruídas aos poucos e o corpo passa a produzir cada vez menos insulina. Como a insulina é o hormônio que permite a entrada da glicose nas células, a glicose até chega normalmente ao sangue após a alimentação, mas não consegue entrar adequadamente nas células para ser usada como fonte de energia. {'\n\n'}
+            Assim, o açúcar fica acumulado no sangue, causando hiperglicemia, enquanto as células permanecem “sem energia”, o que leva aos sintomas do DM1.
           </Text>
         </View>
       </View>
@@ -69,6 +68,35 @@ const PhysiologyView: React.FC = () => {
         ))}
       </View>
 
+      <View style={styles.mainCard}>
+        <View style={styles.cardContent}>
+          <View style={styles.iconHeader}>
+            <View style={[styles.alertIcon, { backgroundColor: 'rgba(96, 165, 250, 0.1)' }]}>
+              <Orbit size={32} color="#60A5FA" />
+            </View>
+            <Text style={styles.cardTitle}>O Resultado no Corpo</Text>
+          </View>
+          <Text style={styles.cardDescription}>
+            Com o aumento da glicose no sangue e a dificuldade das células em utilizá-la como fonte de energia, o organismo começa a apresentar alguns sinais e sintomas característicos. Entre os mais comuns estão o aumento da sede, vontade frequente de urinar, fome excessiva, cansaço, perda de peso e visão embaçada. Em alguns casos, também podem ocorrer náuseas, dor abdominal e fraqueza. {'\n\n'}
+            Quando falta muita insulina, o corpo começa a quebrar gordura para tentar produzir energia. Esse processo gera substâncias chamadas corpos cetônicos, que, em excesso, deixam o sangue mais ácido. Essa complicação é chamada de <Text style={styles.boldBlue}>cetoacidose diabética</Text> e pode causar vômitos, desidratação, dificuldade para respirar, sonolência e até risco de vida se não for tratada.
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.mainCard}>
+        <View style={styles.cardContent}>
+          <View style={styles.iconHeader}>
+            <View style={[styles.alertIcon, { backgroundColor: 'rgba(34, 197, 94, 0.1)' }]}>
+              <Check size={32} color="#22C55E" />
+            </View>
+            <Text style={styles.cardTitle}>A Solução (Tratamento)</Text>
+          </View>
+          <Text style={styles.cardDescription}>
+            Como o organismo deixa de produzir insulina adequadamente, o tratamento do DM1 é baseado principalmente na reposição desse hormônio. A insulina passa a ser aplicada diariamente para ajudar a glicose a entrar nas células e manter os níveis de açúcar no sangue mais controlados. {'\n\n'}
+            Além disso, o tratamento também envolve acompanhamento médico, monitorização da glicemia, alimentação equilibrada, prática de atividade física e educação em saúde.
+          </Text>
+        </View>
+      </View>
       <View style={styles.mythsSection}>
         <View style={styles.mythsHeader}>
           <Orbit color="#A855F7" size={20} />

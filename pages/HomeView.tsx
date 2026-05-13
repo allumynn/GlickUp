@@ -33,8 +33,7 @@ const HomeView: React.FC<HomeViewProps> = ({ setPage }) => {
         </Text>
         
         <Text style={styles.subtitle}>
-          Aprenda a ler os sinais do seu corpo com a clareza de um dashboard. 
-          O controle é 100% seu.
+          Tudo o que você precisa saber sobre Diabetes Mellitus Tipo 1. Sem enrolação, direto ao ponto.
         </Text>
 
         <TouchableOpacity 

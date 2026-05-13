@@ -29,35 +29,6 @@ const SOSView: React.FC = () => {
       </View>
 
       <View style={styles.cardContainer}>
-        {/* Hypo */}
-        <View style={[styles.card, styles.hypoCard]}>
-          <View style={styles.cardHeader}>
-            <View style={[styles.cardIcon, { backgroundColor: '#DC2626' }]}>
-              <Thermometer color="#FFFFFF" size={24} />
-            </View>
-            <View>
-              <Text style={styles.cardTitle}>Hipoglicemia</Text>
-              <View style={styles.priorityBadge}>
-                <Text style={styles.priorityText}>ALTA PRIORIDADE</Text>
-              </View>
-            </View>
-          </View>
-          
-          <View style={styles.steps}>
-            <Text style={styles.stepLabel}>Algoritmo 15-15</Text>
-            {[
-              "Ingerir 15g de carbo rápido (Ex: Suco, Mel).",
-              "Cronometrar 15 minutos em repouso total.",
-              "Re-testar e repetir se abaixo de 70mg/dL."
-            ].map((step, i) => (
-              <View key={i} style={styles.stepItem}>
-                <Text style={styles.stepNumber}>{i + 1}.</Text>
-                <Text style={styles.stepText}>{step}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
-
         {/* Hyper */}
         <View style={[styles.card, styles.hyperCard]}>
           <View style={styles.cardHeader}>
@@ -73,23 +44,80 @@ const SOSView: React.FC = () => {
           </View>
           
           <View style={styles.steps}>
-            <Text style={[styles.stepLabel, { color: '#60A5FA' }]}>Protocolo de Lavagem</Text>
+            <Text style={[styles.stepLabel, { color: '#60A5FA' }]}>Sintomas comuns</Text>
+            <Text style={styles.cardDesc}>
+              Muita sede, vontade de fazer xixi toda hora, cansaço, dor de cabeça, irritação.
+            </Text>
+
+            <Text style={[styles.stepLabel, { color: '#60A5FA', marginTop: 10 }]}>Protocolo de Lavagem</Text>
             {[
               "Hidratação agressiva (água) para diluir a glicose.",
               "Teste de Cetonas (se >250mg/dL persistentemente).",
-              "Correção controlada via dose de Bolus."
+              "Correção controlada via dose de Bônus."
             ].map((step, i) => (
               <View key={i} style={styles.stepItem}>
                 <Text style={[styles.stepNumber, { color: '#2563EB' }]}>{i + 1}.</Text>
                 <Text style={styles.stepText}>{step}</Text>
               </View>
             ))}
+
+        <View style={styles.dangerNotice}>
+          <Text style={styles.dangerNoticeTitle}>Alerta de Perigo: CETOACIDOSE</Text>
+          <Text style={styles.dangerNoticeText}>Procure um hospital imediatamente se houver:</Text>
+          <Text style={styles.dangerNoticeBullet}>• vômitos</Text>
+          <Text style={styles.dangerNoticeBullet}>• falta de ar</Text>
+          <Text style={styles.dangerNoticeBullet}>• hálito com cheiro de acetona ou “fruta”</Text>
+          <Text style={styles.dangerNoticeBullet}>• dor abdominal forte</Text>
+          <Text style={styles.dangerNoticeBullet}>• sonolência</Text>
+        </View>
+          </View>
+        </View>
+
+        {/* Hypo */}
+        <View style={[styles.card, styles.hypoCard]}>
+          <View style={styles.cardHeader}>
+            <View style={[styles.cardIcon, { backgroundColor: '#DC2626' }]}>
+              <Thermometer color="#FFFFFF" size={24} />
+            </View>
+            <View>
+              <Text style={styles.cardTitle}>Hipoglicemia</Text>
+              <View style={styles.priorityBadge}>
+                <Text style={styles.priorityText}>ALTA PRIORIDADE</Text>
+              </View>
+            </View>
+          </View>
+          
+          <View style={styles.steps}>
+            <Text style={styles.stepLabel}>Sintomas comuns</Text>
+            <Text style={styles.cardDesc}>
+              Tremedeira, suor frio, fome excessiva, confusão mental, formigamento na boca.
+            </Text>
+
+            <Text style={[styles.stepLabel, { marginTop: 10 }]}>Algoritmo 15-15</Text>
+            {[
+              "Ingerir 15g de carbo rápido (Ex: Suco, Mel).",
+              "Cronometrar 15 minutos em repouso total.",
+              "Re-testar e repetir se abaixo de 70mg/dL."
+            ].map((step, i) => (
+              <View key={i} style={styles.stepItem}>
+                <Text style={styles.stepNumber}>{i + 1}.</Text>
+                <Text style={styles.stepText}>{step}</Text>
+              </View>
+            ))}
+
+            <View style={[styles.dangerNotice, { borderColor: '#FCA5A5' }]}>
+              <Text style={[styles.dangerNoticeTitle, { color: '#F87171' }]}>O QUE NÃO FAZER</Text>
+              <Text style={styles.dangerNoticeText}>
+                Não coma chocolate ou pizza. A gordura atrasa a digestão. O açúcar demora para chegar no sangue e você continua passando mal. Use açúcar puro!
+              </Text>
+            </View>
           </View>
         </View>
       </View>
 
       <View style={styles.alertBox}>
         <Text style={styles.alertTitle}>Alerta de Inconsciência</Text>
+        <Text style={styles.alertSubtitle}>Aviso: esta seção é para quem está com você, caso você desmaie.</Text>
         <View style={styles.alertGrid}>
           <View style={styles.alertItem}>
             <View style={styles.alertHeader}>
@@ -106,7 +134,7 @@ const SOSView: React.FC = () => {
               <Text style={[styles.alertLabel, { color: '#4ADE80' }]}>AÇÃO</Text>
             </View>
             <Text style={styles.alertText}>
-              Ligue 192. Use Glucagon se disponível.
+              Deitar a pessoa de lado, ligar 192 e utilizar o kit de glucagon se disponível.
             </Text>
           </View>
         </View>
@@ -244,7 +272,14 @@ const styles = StyleSheet.create({
     color: '#EF4444',
     textAlign: 'center',
     textTransform: 'uppercase',
+    marginBottom: 4,
+  },
+  alertSubtitle: {
+    fontSize: 12,
+    color: '#94A3B8',
+    textAlign: 'center',
     marginBottom: 20,
+    fontStyle: 'italic',
   },
   alertGrid: {
     flexDirection: 'row',
@@ -271,6 +306,38 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#64748B',
     lineHeight: 16,
+  },
+  dangerNotice: {
+    marginTop: 20,
+    backgroundColor: 'rgba(239, 68, 68, 0.05)',
+    padding: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(239, 68, 68, 0.2)',
+  },
+  dangerNoticeTitle: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#EF4444',
+    marginBottom: 8,
+  },
+  dangerNoticeText: {
+    fontSize: 12,
+    color: '#E2E8F0',
+    lineHeight: 18,
+    marginBottom: 4,
+  },
+  dangerNoticeBullet: {
+    fontSize: 12,
+    color: '#94A3B8',
+    marginLeft: 8,
+    marginVertical: 1,
+  },
+  cardDesc: {
+    fontSize: 13,
+    color: '#94A3B8',
+    lineHeight: 18,
+    marginBottom: 12,
   },
 });
 

@@ -9,7 +9,8 @@ import {
   AlertTriangle, 
   Apple, 
   BookOpen,
-  Info
+  Info,
+  Orbit
 } from 'lucide-react';
 
 export const COLORS = {
@@ -42,7 +43,7 @@ export const QUICK_ACTIONS = [
     id: 'physiology',
     title: 'O Sistema',
     subtitle: 'Fisiologia básica',
-    icon: <Activity color="#22C55E" size={32} />,
+    icon: <Orbit color="#22C55E" size={32} />,
     color: 'rgba(34, 197, 94, 0.1)',
     tag: 'Educação'
   },
