@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import { Page } from '../types';
 import { QUICK_ACTIONS } from '../constants';
-import { Sparkles, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
+import D1arioLogo from '../components/D1arioLogo';
 
 const { width } = Dimensions.get('window');
 
@@ -22,9 +23,12 @@ const HomeView: React.FC<HomeViewProps> = ({ setPage }) => {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.hero}>
+        <View style={styles.logoWrapper}>
+          <D1arioLogo size={64} showGlow={true} />
+        </View>
+
         <View style={styles.badge}>
-          <Sparkles size={14} color="#60A5FA" />
-          <Text style={styles.badgeText}>Protocolo de Autonomia DM1</Text>
+          <Text style={styles.badgeText}>D1ARIO • Autonomia DM1</Text>
         </View>
         
         <Text style={styles.title}>
@@ -78,7 +82,12 @@ const styles = StyleSheet.create({
   },
   hero: {
     alignItems: 'center',
-    paddingVertical: 40,
+    paddingVertical: 32,
+  },
+  logoWrapper: {
+    marginBottom: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   badge: {
     flexDirection: 'row',

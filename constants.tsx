@@ -49,11 +49,11 @@ export const QUICK_ACTIONS = [
   },
   {
     id: 'chatbot',
-    title: 'EducaBot',
+    title: 'Pâncreo',
     subtitle: 'Tire suas dúvidas',
     icon: <MessageSquare color="#A855F7" size={32} />,
     color: 'rgba(168, 85, 247, 0.1)',
-    tag: 'AI'
+    tag: 'IA'
   }
 ];
 

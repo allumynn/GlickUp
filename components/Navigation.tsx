@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection, setActiveSection
     { id: Page.Insulin, icon: Droplet, label: 'Insulina' },
     { id: Page.Carbs, icon: Apple, label: 'Carbs' },
     { id: Page.SOS, icon: AlertCircle, label: 'S.O.S' },
-    { id: Page.Chatbot, icon: MessageCircle, label: 'Bot' },
+    { id: Page.Chatbot, icon: MessageCircle, label: 'Pâncreo' },
   ];
 
   return (

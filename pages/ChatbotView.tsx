@@ -18,7 +18,7 @@ const ChatbotView: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       role: 'model', 
-      parts: [{ text: "Oi! Sou o EducaBot. Posso te ajudar a entender melhor como lidar com o diabetes no dia a dia. O que você quer saber hoje?" }] 
+      parts: [{ text: "Oi! Sou o Pâncreo. Posso te ajudar a entender melhor como lidar com o diabetes no dia a dia. O que você quer saber hoje?" }] 
     }
   ]);
   const [input, setInput] = useState('');
@@ -64,7 +64,7 @@ const ChatbotView: React.FC = () => {
             <Bot size={20} color="#FFFFFF" />
           </View>
           <View>
-            <Text style={styles.headerTitle}>EducaBot AI</Text>
+            <Text style={styles.headerTitle}>Pâncreo AI</Text>
             <View style={styles.statusContainer}>
               <View style={styles.statusDot} />
               <Text style={styles.statusText}>Online</Text>
@@ -142,7 +142,7 @@ const ChatbotView: React.FC = () => {
         </TouchableOpacity>
       </View>
       <Text style={styles.disclaimer}>
-        Atenção: O bot não substitui seu médico.
+        Atenção: O Pâncreo não substitui seu médico.
       </Text>
     </KeyboardAvoidingView>
   );

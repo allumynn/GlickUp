@@ -43,7 +43,7 @@ const InsulinView: React.FC = () => {
             <View style={[styles.iconContainer, { backgroundColor: 'rgba(168, 85, 247, 0.1)' }]}>
               <Zap size={24} color="#A855F7" />
             </View>
-            <Text style={styles.cardTitle}>Bônus</Text>
+            <Text style={styles.cardTitle}>Bolus</Text>
           </View>
           <Text style={styles.cardDesc}>
             Ação rápida, usada para cobrir carboidratos da refeição ou corrigir glicose elevada.

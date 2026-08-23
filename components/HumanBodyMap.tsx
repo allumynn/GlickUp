@@ -35,7 +35,7 @@ export const MS_APPLICATION_ZONES: ZoneData[] = [
     tagColor: '#F87171',
     bgRgba: 'rgba(239, 68, 68, 0.16)',
     locationShort: 'Laterais da barriga, respeitando 3 cm (2-3 dedos) do umbigo.',
-    idealForShort: 'Insulina Rápida e Ultrarrápida (bônus das refeições).',
+    idealForShort: 'Insulina Rápida e Ultrarrápida (bolus das refeições).',
     rotationShort: 'Alterne os 4 quadrantes a cada aplicação (distância mínima de 1 cm).'
   },
   {
@@ -63,7 +63,7 @@ export const MS_APPLICATION_ZONES: ZoneData[] = [
     tagColor: '#60A5FA',
     bgRgba: 'rgba(59, 130, 246, 0.16)',
     locationShort: 'Atrás do braço, 3 a 4 dedos abaixo do ombro e acima do cotovelo.',
-    idealForShort: 'Insulinas Rápidas / Bônus intermediários.',
+    idealForShort: 'Insulinas Rápidas / Bolus intermediários.',
     rotationShort: 'Alterne entre o braço direito e o esquerdo.'
   },
   {

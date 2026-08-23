@@ -13,6 +13,7 @@ import {
 import { AlertTriangle, Settings, RefreshCw } from 'lucide-react';
 import { Page } from './types';
 import Navigation from './components/Navigation';
+import D1arioLogo from './components/D1arioLogo';
 import HomeView from './pages/HomeView';
 import PhysiologyView from './pages/PhysiologyView';
 import InsulinView from './pages/InsulinView';
@@ -106,6 +107,20 @@ const App: React.FC = () => {
         <View style={[styles.blob, styles.blob3, { opacity: activeSection === Page.Carbs ? 0.2 : 0.05 }]} />
       </View>
 
+      {/* Top Header Bar */}
+      {activeSection !== Page.Home && (
+        <View style={styles.topHeader}>
+          <TouchableOpacity 
+            style={styles.brandContainer}
+            onPress={() => setActiveSection(Page.Home)}
+            activeOpacity={0.8}
+          >
+            <D1arioLogo size={28} showGlow={false} />
+            <Text style={styles.brandTitle}>D1ARIO</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
       <View style={styles.content}>
         {renderContent()}
       </View>
@@ -130,6 +145,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#050B18',
+  },
+  topHeader: {
+    paddingHorizontal: 20,
+    paddingTop: Platform.OS === 'ios' ? 10 : 16,
+    paddingBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    zIndex: 10,
+  },
+  brandContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  brandTitle: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: 1.5,
+    fontFamily: Platform.OS === 'web' ? 'Outfit, sans-serif' : undefined,
   },
   background: {
     ...StyleSheet.absoluteFillObject,

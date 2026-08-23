@@ -53,7 +53,7 @@ const SOSView: React.FC = () => {
             {[
               "Hidratação agressiva (água) para diluir a glicose.",
               "Teste de Cetonas (se >250mg/dL persistentemente).",
-              "Correção controlada via dose de Bônus."
+              "Correção controlada via dose de Bolus."
             ].map((step, i) => (
               <View key={i} style={styles.stepItem}>
                 <Text style={[styles.stepNumber, { color: '#2563EB' }]}>{i + 1}.</Text>
