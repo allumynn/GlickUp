@@ -1,21 +1,18 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   View, 
   Text, 
   StyleSheet, 
   ScrollView, 
-  TouchableOpacity, 
   Dimensions 
 } from 'react-native';
-import { APP_ZONES } from '../constants';
 import { Clock, Zap, Info, ShieldCheck } from 'lucide-react';
+import HumanBodyMap from '../components/HumanBodyMap';
 
 const { width } = Dimensions.get('window');
 
 const InsulinView: React.FC = () => {
-  const [activeZone, setActiveZone] = useState<number | null>(null);
-
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.header}>
@@ -62,49 +59,10 @@ const InsulinView: React.FC = () => {
       <View style={styles.mapSection}>
         <Text style={styles.sectionTitle}>Geografia da Absorção</Text>
         <Text style={styles.sectionDesc}>
-          Onde você aplica determina a velocidade da resposta.
+          Onde você aplica determina a velocidade da resposta. Clique ou passe o cursor nas regiões do corpo para conferir os locais recomendados.
         </Text>
 
-        <View style={styles.silhouetteContainer}>
-          <View style={styles.silhouette}>
-            {/* Simple representation of human zones */}
-            <View style={styles.bodyPart} />
-            
-            {/* Zone markers */}
-            <TouchableOpacity 
-              onPress={() => setActiveZone(activeZone === 0 ? null : 0)}
-              style={[styles.marker, { top: '25%', left: '15%', backgroundColor: '#3B82F6' }]} 
-            />
-            <TouchableOpacity 
-              onPress={() => setActiveZone(activeZone === 1 ? null : 1)}
-              style={[styles.marker, { top: '35%', left: '45%', backgroundColor: '#EF4444' }]} 
-            />
-            <TouchableOpacity 
-              onPress={() => setActiveZone(activeZone === 2 ? null : 2)}
-              style={[styles.marker, { top: '65%', left: '30%', backgroundColor: '#FACC15' }]} 
-            />
-            <TouchableOpacity 
-              onPress={() => setActiveZone(activeZone === 3 ? null : 3)}
-              style={[styles.marker, { top: '55%', left: '70%', backgroundColor: '#22C55E' }]} 
-            />
-
-            {activeZone !== null && (
-              <View style={styles.tooltip}>
-                <Text style={styles.tooltipTitle}>{APP_ZONES[activeZone].label}</Text>
-                <Text style={styles.tooltipDesc}>{APP_ZONES[activeZone].speed}</Text>
-              </View>
-            )}
-          </View>
-
-          <View style={styles.legend}>
-            {APP_ZONES.map((zone, i) => (
-              <View key={i} style={styles.legendItem}>
-                <View style={[styles.legendColor, { backgroundColor: zone.color.replace('bg-', '').replace('-500', '') || '#007AFF' }]} />
-                <Text style={styles.legendText}>{zone.label}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
+        <HumanBodyMap />
       </View>
 
       <View style={styles.infoBox}>
@@ -452,7 +410,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   dangerText: {
-    color: '#F97316',
+    color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '500',
   },

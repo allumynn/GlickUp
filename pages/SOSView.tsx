@@ -64,11 +64,11 @@ const SOSView: React.FC = () => {
         <View style={styles.dangerNotice}>
           <Text style={styles.dangerNoticeTitle}>Alerta de Perigo: CETOACIDOSE</Text>
           <Text style={styles.dangerNoticeText}>Procure um hospital imediatamente se houver:</Text>
-          <Text style={styles.dangerNoticeBullet}>• vômitos</Text>
-          <Text style={styles.dangerNoticeBullet}>• falta de ar</Text>
-          <Text style={styles.dangerNoticeBullet}>• hálito com cheiro de acetona ou “fruta”</Text>
-          <Text style={styles.dangerNoticeBullet}>• dor abdominal forte</Text>
-          <Text style={styles.dangerNoticeBullet}>• sonolência</Text>
+          <Text style={styles.dangerNoticeBullet}>• Vômitos</Text>
+          <Text style={styles.dangerNoticeBullet}>• Falta de ar</Text>
+          <Text style={styles.dangerNoticeBullet}>• Hálito com cheiro de acetona ou “fruta”</Text>
+          <Text style={styles.dangerNoticeBullet}>• Dor abdominal forte</Text>
+          <Text style={styles.dangerNoticeBullet}>• Sonolência</Text>
         </View>
           </View>
         </View>
