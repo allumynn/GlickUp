@@ -12,6 +12,7 @@ import { Page } from '../types';
 import { QUICK_ACTIONS } from '../constants';
 import { Zap } from 'lucide-react';
 import D1arioLogo from '../components/D1arioLogo';
+import ResearchFooter from '../components/ResearchFooter';
 
 const { width } = Dimensions.get('window');
 
@@ -71,6 +72,9 @@ const HomeView: React.FC<HomeViewProps> = ({ setPage }) => {
           </TouchableOpacity>
         ))}
       </View>
+
+      {/* Rodapé com Informações da Pesquisa */}
+      <ResearchFooter />
     </ScrollView>
   );
 };
